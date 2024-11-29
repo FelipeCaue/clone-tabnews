@@ -1,9 +1,10 @@
-function status(req, resp) {
+import database from "../../../../infra/database.js";
+
+async function status(req, resp) {
+  const result = await database.query(" SELECT 1 + 1 ;");
+  console.log(result);
   return resp.status(200).json({
-    message: "Felipe ",
+    message: result,
   });
-}
-function f() {
-  console.log("dddd");
 }
 export default status;
